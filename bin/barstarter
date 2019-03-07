@@ -1,0 +1,22 @@
+#!/usr/bin/env ksh
+
+# vim: ts=2 sw=2 :et
+FONT2="FontAwesome-7"
+#FONT="Fira Sans-7"
+#FONT3="Symbola:size=10"
+#FONT3="tewi:size=10"
+FONT3="Siji-7.5:style=Regular"
+#FONT2="-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
+FONT="Source Code Pro Medium:size=8"
+COLOR="#DD000000"
+DOCK=$(xrandr | egrep $EXDISP | awk '{print $2}')
+
+if [ $DOCK -eq "connected" ]; then
+#  GEO="1898x20+1610+6"
+  GEO="1898x20+10+6"
+else
+  GEO="1580x20+10+6"
+fi
+
+
+~/bin/bar.sh | lemonbar -dp -g "$GEO" -B "$COLOR" -f "$FONT" -f "$FONT2" -f "$FONT3" &

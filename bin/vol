@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+case "$1" in
+  up) mixerctl outputs.master.mute=off; mixerctl outputs.master=+16 ;;
+  down) mixerctl outputs.master.mute=off; mixerctl outputs.master=-16 ;;
+  max) mixerctl outputs.master.mute=off; mixerctl outputs.master=255,255 ;;
+  mid) mixerctl outputs.master.mute=off; mixerctl outputs.master=128,128 ;;
+  mute) mixerctl outputs.master.mute=on ;;
+  toggle) mixerctl outputs.master.mute=toggle ;;
+  *) mixerctl outputs.master.mute=toggle ;;
+esac
